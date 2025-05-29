@@ -1,0 +1,170 @@
+.terms-of-service {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.terms-header {
+    text-align: center;
+    margin: 4rem 0 2rem;
+}
+
+.terms-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.terms-header p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.effective-date {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.accordion {
+    margin: 2rem 0;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.active {
+    padding: 1.5rem;
+    max-height: 2000px; /* Larger value for longer content */
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.accordion-icon {
+    transition: transform 0.3s;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.accordion-content li {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.contact-info h4 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Table of Contents (Desktop) */
+.toc {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .terms-container {
+        display: flex;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .toc {
+        display: block;
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+        min-width: 250px;
+        padding: 1.5rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        margin-top: 4rem;
+    }
+
+    .toc h3 {
+        margin-bottom: 1rem;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .toc li {
+        margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 0.9rem;
+    }
+
+    .toc a:hover {
+        color: #333;
+    }
+
+    .toc a.active {
+        color: #007bff;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 768px) {
+    .terms-header h1 {
+        font-size: 2rem;
+    }
+
+    .terms-of-service {
+        margin: 1rem auto;
+    }
+
+    .accordion-content.active {
+        padding: 1rem;
+    }
+}

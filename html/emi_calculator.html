@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator - OEMS24</title>    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/emi_calculator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>    <div class="scroll-indicator"></div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../assets/logo.png" alt="OEMS24 Logo">
+        </div>        <ul class="nav-links">
+            <li><a href="../html/index.html#home" id="home-link">Home</a></li>
+            <li><a href="../html/index.html#stats" id="about-link">About Us</a></li>
+            <li><a href="../html/index.html#services" id="services-link">Services</a></li>
+            <li><a href="index.html#buy-vehicle">Vehicles</a></li>            
+            <li><a href="emi_calculator.html" id="emi-link" class="active">EMI Calculator</a></li>
+            <li><a href="../html/index.html#features" id="features-link">Features</a></li>            <li><a href="../html/index.html#testimonials" id="testimonials-link">Testimonials</a></li>
+            <li><a href="../html/index.html#ecosystem" id="ecosystem-link">Ecosystem</a></li>
+            <li><button class="btn login-btn" onclick="openLoginModal()">Login</button></li>
+        </ul>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login to OEMS24</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group otp-group" style="display: none;">
+                    <input type="text" id="otp" placeholder="Enter OTP" maxlength="6">
+                    <p class="otp-timer">Resend OTP in <span id="timer">60</span>s</p>
+                </div>
+                <button type="submit" class="btn primary">Send OTP</button>
+                <p class="form-footer">New to OEMS24? <a href="#user">Register here</a></p>
+            </form>
+        </div>
+    </div>    
+    <section class="calculator-hero">
+        <div class="hero-content">
+            <h1>Smart EMI Calculator</h1>
+            <p>Make informed decisions about your vehicle purchase with our advanced EMI calculator. Get instant calculations, flexible tenure options, and competitive interest rates.</p>
+            <div class="hero-badges">
+                <div class="badge">
+                    <span class="icon">📊</span>
+                    <span class="text">Instant Calculations</span>
+                </div>
+                <div class="badge">
+                    <span class="icon">💰</span>
+                    <span class="text">Best Interest Rates</span>
+                </div>
+                <div class="badge">
+                    <span class="icon">⚡</span>
+                    <span class="text">Quick Processing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br>    
+    <div class="main-content">
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h2>Calculate Your EMI</h2>
+                <p>Plan your monthly payments with our easy-to-use calculator</p>
+            </div>
+            <div class="calculator-grid">
+                <div class="input-section">
+                    <form id="emiForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="vehiclePrice">Vehicle Price (₹)</label>                            <div class="input-wrapper">
+                                <input type="number" id="vehiclePrice" required min="10000" max="2000000" value="100000">
+                            </div>
+                            <div class="range-slider">
+                                <input type="range" id="vehiclePriceRange" min="10000" max="2000000" value="100000" step="1000">
+                                <div class="range-info">
+                                    <span>₹10,000</span>
+                                    <span>₹20,00,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="downPayment">Down Payment (₹)</label>                        <div class="input-wrapper">
+                            <input type="number" id="downPayment" required min="0" max="1000000" value="20000">
+                        </div>
+                        <div class="range-slider">
+                            <input type="range" id="downPaymentRange" min="0" max="1000000" value="20000" step="1000">
+                            <div class="range-info">
+                                <span>₹0</span>
+                                <span>₹10,00,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interestRate">Interest Rate (%)</label>                        <div class="input-wrapper">
+                            <input type="number" id="interestRate" required min="5" max="20" value="9.5" step="0.1">
+                        </div>
+                        <div class="range-slider">
+                            <input type="range" id="interestRateRange" min="5" max="20" value="9.5" step="0.1">
+                            <div class="range-info">
+                                <span>5%</span>
+                                <span>20%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanTerm">Loan Term (Months)</label>                        <div class="input-wrapper">
+                            <input type="number" id="loanTerm" required min="12" max="84" value="36">
+                        </div>
+                        <div class="range-slider">
+                            <input type="range" id="loanTermRange" min="12" max="84" value="36" step="12">
+                            <div class="range-info">
+                                <span>12 months</span>
+                                <span>84 months</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">Calculate EMI</button>
+                </form>
+            </div>
+
+            <div class="result-section">
+                <div class="result-card">
+                    <h2>Your EMI Breakdown</h2>
+                    <div class="emi-amount">
+                        <span class="amount">₹2,999</span>
+                        <span class="label">Monthly EMI</span>
+                    </div>
+                    <div class="breakdown">
+                        <div class="breakdown-item">
+                            <span class="label">Principal Amount</span>
+                            <span class="value" id="principalAmount">₹80,000</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="label">Interest Amount</span>
+                            <span class="value" id="interestAmount">₹12,364</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="label">Total Amount</span>
+                            <span class="value" id="totalAmount">₹92,364</span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="emiChart"></canvas>                    
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="enquire-btn" type="button">
+                        Get Instant Approval
+                        <span class="arrow">→</span>
+                    </button>
+                    <button class="schedule-btn" type="button">
+                        Schedule Test Ride
+                        <span class="arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/emi_calculator.js"></script>
+    <br>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-section branding">                    <div class="footer-logo">
+                        <img src="../assets/logo.png" alt="OEMS24 Logo">
+                        <h2>OEMS24</h2>
+                    </div>
+                    <p class="footer-tagline">Your Safety, Our Priority</p>
+                    <div class="footer-newsletter">
+                        <h4>Subscribe to Our Updates</h4>
+                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="subscribe-btn">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h4>Subscribe to Our Updates</h4>
+                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="subscribe-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>                            <li><a href="index.html#stats">About Us</a></li>
+                            <li><a href="javascript:void(0)" onclick="handleAppAction('careers')">Careers</a></li>
+                            <li><a href="javascript:void(0)" onclick="handleAppAction('blog')">Blog</a></li>
+                            <li><a href="javascript:void(0)" onclick="handleAppAction('press')">Press</a></li>
+                        </ul>
+                    </div>                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>                            <li><a href="vehicles.html">Browse Vehicles</a></li>
+                            <li><a href="emi_calculator.html">EMI Calculator</a></li>
+                            <li><a href="index.html#services">All Services</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="help_safety.html#help">Help Center</a></li>
+                            <li><a href="help_safety.html#safety">Safety</a></li>
+                            <li><a href="terms_of_service.html">Terms of Service</a></li>
+                            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-section download">
+                    <h4>Download App</h4>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://oems24.com/app" alt="Download App">
+                        <p>Scan to Download</p>
+                    </div>
+                    <div class="app-badges">
+                        <button class="app-store-btn" onclick="handleAppAction('download')">
+                            <span class="icon"><i class="fab fa-apple"></i></span>
+                            <div class="text">
+                                <small>Download on the</small>
+                                <strong>App Store</strong>
+                            </div>
+                        </button>
+                        <button class="app-store-btn" onclick="handleAppAction('download')">
+                            <span class="icon"><i class="fab fa-google-play"></i></span>
+                            <div class="text">
+                                <small>GET IT ON</small>
+                                <strong>Google Play</strong>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://facebook.com/Naiyo24" class="social-icon" title="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/naiyo24" class="social-icon" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@naiyo24_official" class="social-icon" title="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                    <a href="https://instagram.com/naiyo24_official" class="social-icon" title="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/naiyo24-official" class="social-icon" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2025 OEMS24. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms_of_service.html">Terms</a>
+                    <a href="privacy_policy.html">Privacy</a>
+                    <a href="#cookies">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/emi_calculator.js"></script>
+</body>
+</html>

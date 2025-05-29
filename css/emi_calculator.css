@@ -1,0 +1,525 @@
+:root {
+    --midnight: #0f0f0f;
+    --neon-blue: #38b6ff;
+    --blue: #38b6ff;
+    --neon-teal: #00ffc3;
+    --white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --surface-dark: #121212;
+    --surface-light: #1e1e1e;
+    --primary: #38b6ff;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-on-primary: #0f0f0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--midnight);
+    color: var(--white);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 2rem 4rem;
+    flex: none;
+}
+
+.calculator-hero {
+    background: linear-gradient(135deg, var(--midnight) 0%, #1a1a1a 100%);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--neon-blue) 50%, 
+        transparent 100%);
+}
+
+.calculator-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.calculator-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, var(--white), var(--neon-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calculator-hero p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.badge .icon {
+    font-size: 1.5rem;
+}
+
+.badge .text {
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: -80px auto 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+    gap: 3rem;
+    align-items: start;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.result-section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.result-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.result-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--neon-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.emi-amount {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.emi-amount:hover {
+    transform: scale(1.02);
+}
+
+.emi-amount .amount {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--neon-blue);
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.emi-amount .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.breakdown {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: padding 0.3s ease;
+}
+
+.breakdown-item:hover {
+    padding: 1.2rem 0.5rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.breakdown-item:last-child {
+    border-bottom: none;
+}
+
+.breakdown-item .label {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.breakdown-item:hover .label {
+    color: var(--white);
+}
+
+.breakdown-item .value {
+    color: var(--white);
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.chart-container {
+    height: 220px;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.chart-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    pointer-events: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.chart-container:hover::after {
+    box-shadow: 0 0 20px rgba(56, 182, 255, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.enquire-btn {
+    background: var(--neon-blue);
+    color: var(--midnight);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.enquire-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.schedule-btn {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.action-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+.enquire-btn:hover {
+    box-shadow: 0 5px 15px rgba(56, 182, 255, 0.3);
+}
+
+.enquire-btn:hover::before {
+    left: 100%;
+}
+
+.schedule-btn:hover {
+    background: rgba(56, 182, 255, 0.1);
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+
+button:hover .arrow {
+    transform: translateX(5px);
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    background: rgba(56, 182, 255, 0.05);
+}
+
+.range-slider {
+    margin-bottom: 1.5rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 0 0 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--neon-blue);
+    cursor: pointer;
+    margin-top: -6px;
+    transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.range-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.range-slider:hover .range-info {
+    opacity: 1;
+}
+
+.calculate-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--neon-blue);
+    color: var(--midnight);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(56, 182, 255, 0.3);
+}
+
+.calculate-btn:hover::before {
+    left: 100%;
+}
+
+@media (max-width: 1200px) {
+    .calculator-container {
+        border-radius: 16px;
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .input-section,
+    .result-section {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 0 1rem 3rem;
+    }
+    
+    .calculator-container {
+        margin-top: -40px;
+        padding: 2rem;
+    }
+
+    .calculator-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-section,
+    .result-section {
+        padding: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .chart-container {
+        height: 180px;
+    }
+}
