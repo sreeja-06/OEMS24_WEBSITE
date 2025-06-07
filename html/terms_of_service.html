@@ -51,7 +51,7 @@
             </form>
         </div>
     </div>
-
+    <br><br>
     <div class="terms-container">
         <!-- Desktop Table of Contents -->
         <aside class="toc">
@@ -72,7 +72,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </aside>
-
+    
         <main class="terms-of-service">
             <div class="terms-header">
                 <h1>Terms of Service</h1>
@@ -365,7 +365,7 @@
                     <a href="https://instagram.com/naiyo24_official" class="social-icon" title="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                     <a href="https://linkedin.com/company/naiyo24-official" class="social-icon" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <p>&copy; 2025 OEMS24. All rights reserved.</p>
+                <p>&copy; 2025 NAIYO24 PVT LTD. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="terms_of_service.html">Terms</a>
                     <a href="privacy_policy.html">Privacy</a>
@@ -373,46 +373,81 @@
                 </div>
             </div>
         </div>
-    </footer>
-
-    <script>
+    </footer>    <script>
         // Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                // Toggle active class on header
-                header.classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion functionality
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    // Toggle active class on header
+                    header.classList.toggle('active');
 
-                // Toggle active class on content
-                const content = header.nextElementSibling;
-                content.classList.toggle('active');
+                    // Toggle active class on content
+                    const content = header.nextElementSibling;
+                    content.classList.toggle('active');
+                });
             });
-        });
 
-        // Table of Contents scroll spy
-        const sections = document.querySelectorAll('.accordion-item');
-        const navLinks = document.querySelectorAll('.toc a');
+            // Table of Contents scroll spy
+            const sections = document.querySelectorAll('.accordion-item');
+            const navLinks = document.querySelectorAll('.toc a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 60) {
-                    current = section.getAttribute('id');
+            // Function to update active link
+            function updateActiveLink() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    // Adjust offset to match when section is in view
+                    if (sectionTop < 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Initial check
+            updateActiveLink();
+            
+            // Update on scroll (with debounce)
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                if (scrollTimeout) {
+                    clearTimeout(scrollTimeout);
                 }
+                scrollTimeout = setTimeout(updateActiveLink, 100);
             });
 
+            // Smooth scroll for TOC links
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Also expand the accordion if it's not already expanded
+                        const header = targetElement.querySelector('.accordion-header');
+                        const content = targetElement.querySelector('.accordion-content');
+                        
+                        if (header && content && !content.classList.contains('active')) {
+                            header.classList.add('active');
+                            content.classList.add('active');
+                        }
+                    }
+                });
             });
-        });
-
-        // Mobile menu functionality
-        document.querySelector('.hamburger-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.classList.toggle('active');
         });
     </script>
     <script src="../js/main.js"></script>
