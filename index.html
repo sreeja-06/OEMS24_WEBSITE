@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OEMS24 - Powered by Naiyo24 Pvt Ltd</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="elements/navbar.css">
+    <link rel="stylesheet" href="elements/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="scroll-indicator"></div>
+    <!-- Import Navbar -->
+    <div id="navbar-placeholder"></div>
+    
+    <!-- Main Content -->
+    <section id="home" class="hero">
+        <div class="hero-content">            
+            <h1>Revolutionizing Emergency Response<br>& Urban Mobility</h1>
+            <p>Integrating Cab Service, Instant Ambulance Support, and Bike Ownership Solutions for a Safer Tomorrow</p>
+            <div class="cta-buttons">
+                <button class="btn primary">Book a Ride</button>
+                <button class="btn secondary">Download App</button>
+            </div>
+        </div>        
+        <div class="hero-image">            
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="app-preview">
+                            <div class="app-status-bar">
+                                <div class="status-icons">
+                                    <span class="time">9:41</span>
+                                    <div class="right-icons">
+                                        <span class="signal">📶</span>
+                                        <span class="wifi">📡</span>
+                                        <span class="battery">🔋</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="app-header">
+                                <div class="user-welcome">
+                                    <h3>Hello, User</h3>
+                                    <p>Where would you like to go?</p>
+                                </div>
+                            </div>
+                            <div class="app-content">
+                                <div class="service-selector">
+                                    <button class="active" data-service="cab">
+                                        <span class="icon">🚗</span>
+                                        <span class="label">Cab</span>
+                                        <span class="eta">2 min</span>
+                                    </button>
+                                    <button data-service="bike">
+                                        <span class="icon">🏍️</span>
+                                        <span class="label">Bike</span>
+                                        <span class="eta">1 min</span>
+                                    </button>
+                                    <button data-service="ambulance">
+                                        <span class="icon">🚑</span>
+                                        <span class="label">Emergency</span>
+                                        <span class="eta">4 min</span>
+                                    </button>
+                                </div>
+                                <div class="location-card">
+                                    <div class="location-inputs">
+                                        <div class="input-group pickup">
+                                            <span class="dot green"></span>
+                                            <input type="text" placeholder="Your location" readonly value="Current location">
+                                            <button class="location-btn">📍</button>
+                                        </div>
+                                        <div class="location-separator">
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="input-group dropoff">
+                                            <span class="dot red"></span>
+                                            <input type="text" placeholder="Where to?" readonly>
+                                            <button class="favorites-btn">⭐</button>
+                                        </div>
+                                    </div>
+                                    <div class="quick-actions">
+                                        <button class="action-btn">
+                                            <span class="icon">🏠</span>
+                                            <span>Home</span>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="icon">💼</span>
+                                            <span>Work</span>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="icon">📍</span>
+                                            <span>Recent</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="ride-options">
+                                    <h4>Available Rides</h4>
+                                    <div class="options-scroll">
+                                        <div class="ride-option active">
+                                            <span class="icon">🚗</span>
+                                            <div class="details">
+                                                <h5>Economy</h5>
+                                                <p>₹99</p>
+                                            </div>
+                                            <span class="time">2 min</span>
+                                        </div>
+                                        <div class="ride-option">
+                                            <span class="icon">🚙</span>
+                                            <div class="details">
+                                                <h5>Premium</h5>
+                                                <p>₹149</p>
+                                            </div>
+                                            <span class="time">4 min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Split Section -->
+    <section id="emergency-booking" class="split-section">
+        <div class="split-container">
+            <div class="split-left">
+                <div class="emergency-banner">
+                    <div class="pulse-dot"></div>
+                    <span>Emergency Services Active</span>
+                </div>
+                <h2>4-Minute Emergency<br>Response Time</h2>
+                <p>Your safety is our top priority. Our emergency response team is available 24/7.</p>
+                <button class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    Book Emergency Service
+                </button>
+                <div class="hotline">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="hotline-text">
+                        <span>24/7 Emergency Hotline</span>
+                        <strong>1800-OEMS-24</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="split-right">
+                <div class="quick-book">
+                    <h3>Quick Ride Booking</h3>
+                    <div class="booking-form">
+                        <div class="location-inputs">
+                            <div class="input-group">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" placeholder="Pickup Location">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-location-arrow"></i>
+                                <input type="text" placeholder="Drop Location">
+                            </div>
+                        </div>
+                        <div class="ride-types">
+                            <button class="ride-type active" data-type="cab">
+                                <i class="fas fa-car"></i>
+                                <span>Cab</span>
+                            </button>
+                            <button class="ride-type" data-type="bike">
+                                <i class="fas fa-motorcycle"></i>
+                                <span>Bike</span>
+                            </button>
+                            <button class="ride-type emergency" data-type="ambulance">
+                                <i class="fas fa-ambulance"></i>
+                                <span>Emergency</span>
+                            </button>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="section-header">
+            <h2>Our Key Features</h2>
+            <p>Experience seamless urban mobility and emergency response</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Instant Cab & Bike Service</h3>
+                <p>Quick, reliable rides at your fingertips</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 2-minute average wait time</li>
+                    <li><i class="fas fa-check"></i> GPS tracked rides</li>
+                    <li><i class="fas fa-check"></i> Verified drivers</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <h3>Emergency Response</h3>
+                <p>Life-saving assistance when seconds count</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 4-minute response time</li>
+                    <li><i class="fas fa-check"></i> 24/7 availability</li>
+                    <li><i class="fas fa-check"></i> Trained medical staff</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-motorcycle"></i>
+                </div>
+                <h3>Become OEMS Partner</h3>
+                <p>Start earning with your own vehicle</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Easy EMI options</li>
+                    <li><i class="fas fa-check"></i> Guaranteed earnings</li>
+                    <li><i class="fas fa-check"></i> Complete support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicles Section -->
+    <section id="vehicles" class="vehicles-section">
+        <div class="section-header">
+            <h2>Become an OEMS24 Rider</h2>
+            <p>Choose your vehicle, start earning, and pay from your monthly earnings</p>
+        </div>
+        <div class="vehicles-grid">
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="assets/vehicles/economy.jpg" alt="Economy Car">
+                    <div class="financing-badge">Easy EMI Available</div>
+                </div>
+                <div class="vehicle-details">
+                    <div class="vehicle-type">
+                        <h3>Economy Car Partner</h3>
+                        <span class="earnings-potential">Earn up to ₹45,000/month*</span>
+                    </div>
+                    <div class="vehicle-specs">
+                        <span class="spec-item"><i class="fas fa-gas-pump"></i> High Fuel Efficiency</span>
+                        <span class="spec-item"><i class="fas fa-car"></i> Low Maintenance</span>
+                    </div>
+                    <div class="vehicle-pricing">
+                        <div class="price-details">
+                            <div class="total-price">₹4,50,000</div>
+                            <div class="emi">EMI from ₹8,999/month</div>
+                        </div>
+                        <button class="btn apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vehicle-card featured">
+                <div class="vehicle-image">
+                    <img src="assets/vehicles/premium.jpg" alt="Premium Car">
+                    <div class="financing-badge">Premium Partner</div>
+                </div>
+                <div class="vehicle-details">
+                    <div class="vehicle-type">
+                        <h3>Premium Car Partner</h3>
+                        <span class="earnings-potential">Earn up to ₹75,000/month*</span>
+                    </div>
+                    <div class="vehicle-specs">
+                        <span class="spec-item"><i class="fas fa-star"></i> Luxury Features</span>
+                        <span class="spec-item"><i class="fas fa-medal"></i> Higher Earnings</span>
+                    </div>
+                    <div class="vehicle-pricing">
+                        <div class="price-details">
+                            <div class="total-price">₹7,50,000</div>
+                            <div class="emi">EMI from ₹14,999/month</div>
+                        </div>
+                        <button class="btn apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="assets/vehicles/bike.jpg" alt="Bike">
+                    <div class="financing-badge">Quick Start</div>
+                </div>
+                <div class="vehicle-details">
+                    <div class="vehicle-type">
+                        <h3>Bike Partner</h3>
+                        <span class="earnings-potential">Earn up to ₹25,000/month*</span>
+                    </div>
+                    <div class="vehicle-specs">
+                        <span class="spec-item"><i class="fas fa-bolt"></i> Quick Delivery</span>
+                        <span class="spec-item"><i class="fas fa-wallet"></i> Low Investment</span>
+                    </div>
+                    <div class="vehicle-pricing">
+                        <div class="price-details">
+                            <div class="total-price">₹1,25,000</div>
+                            <div class="emi">EMI from ₹2,999/month</div>
+                        </div>
+                        <button class="btn apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-footer">
+            <p class="earnings-disclaimer">*Earnings may vary based on factors including hours worked, location, and demand</p>
+            <div class="partner-benefits">
+                <h4>Why Partner with OEMS24?</h4>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Pay EMI from Earnings</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Vehicle Insurance</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-tools"></i>
+                        <span>Maintenance Support</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Guaranteed Bookings</span>
+                    </div>
+                </div>
+            </div>
+            <a href="vehicles.html" class="btn primary">View Detailed Program</a>
+        </div>
+    </section>
+
+    <section id="ecosystem" class="ecosystem">
+        <div class="container">
+            <h2>NAIYO24 Ecosystem</h2>
+            <p class="section-subtitle">Explore our family of innovative solutions</p>
+            <div class="ecosystem-carousel">
+                <button class="carousel-arrow prev-btn" aria-label="Previous">←</button>                <div class="ecosystem-track">
+                    <div class="ecosystem-slide">
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">👩</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>Naari</h3>
+                                <p>Empowering women with safe transportation and support services</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">Safety</span>
+                                    <span class="feature-tag">Support</span>
+                                    <span class="feature-tag">Empowerment</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">🍽️</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>BHUKK</h3>
+                                <p>Smart food delivery with AI-powered recommendations</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">Food</span>
+                                    <span class="feature-tag">AI-Powered</span>
+                                    <span class="feature-tag">Rewards</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">🎓</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>EDUQUEST247</h3>
+                                <p>Round-the-clock learning resources and educational support</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">Education</span>
+                                    <span class="feature-tag">Learning</span>
+                                    <span class="feature-tag">Support</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">💰</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>SIRFBILL</h3>
+                                <p>Advanced business management solution for billing and inventory operations</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">GST Billing</span>
+                                    <span class="feature-tag">Inventory</span>
+                                    <span class="feature-tag">Cloud-Based</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ecosystem-slide">
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">💎</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>Luriana</h3>
+                                <p>Premium jewelry modification and restoration with digital-first approach</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">3D Design</span>
+                                    <span class="feature-tag">Restoration</span>
+                                    <span class="feature-tag">Authentication</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">💊</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>Medorica</h3>
+                                <p>Healthcare solutions and pharmacy management systems</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">Healthcare</span>
+                                    <span class="feature-tag">Pharmacy</span>
+                                    <span class="feature-tag">Management</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ecosystem-card">
+                            <div class="ecosystem-icon">
+                                <span class="icon">🎯</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <h3>Intarion</h3>
+                                <p>Interior designing business with smart, tech-enabled solutions</p>
+                                <div class="ecosystem-features">
+                                    <span class="feature-tag">Interior Design</span>
+                                    <span class="feature-tag">Smart Tech</span>
+                                    <span class="feature-tag">Innovation</span>
+                                </div>
+                                <button class="btn-learn-more">
+                                    Learn More
+                                    <span class="arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-arrow next-btn" aria-label="Next">→</button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Import Footer -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Load navbar and footer
+        fetch('elements/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+            
+        fetch('elements/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

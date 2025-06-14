@@ -123,6 +123,7 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 24px;
     padding: 3rem;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
@@ -269,9 +270,10 @@ body {
 }
 
 .chart-container {
-    height: 220px;
-    margin: 2rem 0;
     position: relative;
+    width: 100%;
+    height: 250px;
+    margin: 2rem 0;
 }
 
 .chart-container::after {
@@ -288,6 +290,35 @@ body {
 
 .chart-container:hover::after {
     box-shadow: 0 0 20px rgba(56, 182, 255, 0.1);
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.color-box {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.color-box.principal {
+    background-color: rgba(56, 182, 255, 0.8);
+}
+
+.color-box.interest {
+    background-color: rgba(0, 255, 195, 0.8);
 }
 
 .action-buttons {
@@ -506,6 +537,10 @@ input[type="range"]::-webkit-slider-runnable-track {
 
     .calculator-grid {
         gap: 1.5rem;
+    }
+
+    .chart-container {
+        height: 200px;
     }
 }
 

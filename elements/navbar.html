@@ -1,0 +1,38 @@
+<nav class="navbar">
+    <div class="logo">
+        <img src="../assets/logo.png" alt="OEMS24 Logo"><H1> OEMS24</H1>
+    </div>        
+    <ul class="nav-links">
+        <li><a href="../index.html#home" id="home-link">Home</a></li>        
+        <li><a href="../about_us.html" id="about-link">About Us</a></li>
+        <li><a href="../vehicles.html" id="vehicles-link">Vehicles</a></li>
+        <li><a href="../emi_calculator.html" id="emi-link">EMI Calculator</a></li>
+        <li><a href="../index.html#ecosystem" id="ecosystem-link">Ecosystem</a></li>
+        <li><button class="btn login-btn" onclick="openLoginModal()">Login</button></li>
+    </ul>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>        
+        <div class="bar"></div>
+    </div>
+</nav>
+<div class="scroll-indicator"></div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>Login to OEMS24</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group otp-group" style="display: none;">
+                <input type="text" id="otp" placeholder="Enter OTP" maxlength="6">
+                <p class="otp-timer">Resend OTP in <span id="timer">60</span>s</p>
+            </div>
+            <button type="submit" class="btn primary">Send OTP</button>
+            <p class="form-footer">New to OEMS24? <a href="#user">Register here</a></p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - OEMS24</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="elements/navbar.css">
+    <link rel="stylesheet" href="elements/footer.css">
+    <link rel="stylesheet" href="css/about_us.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Import Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Stats and About Section -->
+    <section id="stats" class="stats">
+        <div class="stats-about-container">
+            <div class="about-content">
+                <h2>About OEMS24</h2>
+                <p>Pioneering the future of urban mobility and emergency response, OEMS24 brings together cutting-edge technology and reliable services to create a safer, more connected world.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">Happy Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Daily Rides</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5K+</div>
+                        <div class="stat-label">Emergency Assists</div>
+                    </div>
+                </div>
+                
+                <div class="about-features">
+                    <div class="feature-tag">24/7 Support</div>
+                    <div class="feature-tag">Instant Response</div>
+                    <div class="feature-tag">GPS Tracking</div>
+                    <div class="feature-tag">Secure Payments</div>
+                </div>
+            </div>
+
+            <div class="app-mockup-container">
+                <div class="mockup-screen">
+                    <div class="mockup-header">
+                        <h3>Explore OEMS24</h3>
+                        <p>Your Safety, Our Priority</p>
+                    </div>
+                    <div class="mockup-carousel">
+                        <button class="mockup-nav prev" aria-label="Previous screenshot">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="mockup-slides">
+                            <div class="mockup-slide active">
+                                <img src="assets/mockup1.jpeg" alt="App Screenshot 1" class="mockup-image">
+                            </div>
+                            <div class="mockup-slide">
+                                <img src="assets/mockup1.jpeg" alt="App Screenshot 2" class="mockup-image">
+                            </div>
+                            <div class="mockup-slide">
+                                <img src="assets/mockup1.jpeg" alt="App Screenshot 3" class="mockup-image">
+                            </div>
+                        </div>
+                        <button class="mockup-nav next" aria-label="Next screenshot">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="mockup-indicators">
+                            <span class="mockup-dot active" data-index="0"></span>
+                            <span class="mockup-dot" data-index="1"></span>
+                            <span class="mockup-dot" data-index="2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-content">
+            <div class="services-tabs">
+            <button class="tab-btn active" data-service="personal">
+                <span>🚗 Personal Travel</span>
+            </button>
+            <button class="tab-btn" data-service="emergency">
+                <span>🚑 Emergency</span>
+            </button>
+            <button class="tab-btn" data-service="business">
+                <span>🚚 Business</span>
+            </button>
+        </div>
+
+            <div class="service-carousel active" id="personal-service">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-motorcycle"></i></div>
+                            <h3>Bike</h3>
+                            <p>Quick & Affordable</p>
+                            <span class="eta">From ₹49</span>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-bicycle"></i></div>
+                            <h3>Bike Lite</h3>
+                            <p>Budget-Friendly Option</p>
+                            <span class="eta">From ₹39</span>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-car"></i></div>
+                            <h3>Cab Economy</h3>
+                            <p>Comfortable Rides</p>
+                            <span class="eta">From ₹149</span>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-car-side"></i></div>
+                            <h3>Cab Premium</h3>
+                            <p>Luxury Travel</p>
+                            <span class="eta">From ₹249</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-carousel" id="emergency-service">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                            <h3>Ambulance</h3>
+                            <p>24/7 Emergency Support</p>
+                            <span class="eta">Priority Response</span>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-hospital"></i></div>
+                            <h3>Medical Transport</h3>
+                            <p>Non-Emergency Transfer</p>
+                            <span class="eta">Scheduled Pickup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-carousel" id="business-service">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-box"></i></div>
+                            <h3>Parcel</h3>
+                            <p>Fast Delivery</p>
+                            <span class="eta">Same-Day Options</span>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="fas fa-shuttle-van"></i></div>
+                            <h3>Shuttle</h3>
+                            <p>Group Transport</p>
+                            <span class="eta">Custom Schedule</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card active">
+                <div class="user-avatar">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="User avatar">
+                </div>
+                <p class="testimonial-text">"OEMS24's emergency service saved my father's life. Their ambulance arrived in just 4 minutes!"</p>
+                <p class="user-name">- Priya S.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-avatar">
+                    <img src="https://i.pravatar.cc/150?img=2" alt="User avatar">
+                </div>
+                <p class="testimonial-text">"As a woman who travels late, their safety features give me peace of mind."</p>
+                <p class="user-name">- Sarah M.</p>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Import Footer -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Notification System -->
+    <div class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Load navbar and footer
+        fetch('elements/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+            
+        fetch('elements/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

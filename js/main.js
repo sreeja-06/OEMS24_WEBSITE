@@ -12,6 +12,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector('.navbar');
 let lastScrollPosition = window.scrollY;
 
+// Set active nav link based on current page
+function setActiveNavLink() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        // Get the path from the href
+        const linkPath = link.getAttribute('href').split('#')[0];
+        
+        // Check if this is the current page
+        if (currentPath.endsWith(linkPath) || 
+            (currentPath.endsWith('index.html') && linkPath.endsWith('index.html')) ||
+            (currentPath.endsWith('/') && linkPath.endsWith('index.html'))) {
+            link.classList.add('active');
+        }
+        
+        // For about page sections
+        if (currentPath.endsWith('about_us.html') && link.getAttribute('href').includes('about_us.html')) {
+            const section = link.getAttribute('href').split('#')[1];
+            if (!section) {
+                // This is the main about link
+                link.classList.add('active');
+            }
+        }
+    });
+}
+
+// Set active link when page loads
+document.addEventListener('DOMContentLoaded', setActiveNavLink);
+
 window.addEventListener('scroll', () => {
     // Background change
     if (window.scrollY > 50) {

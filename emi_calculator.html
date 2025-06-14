@@ -3,32 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMI Calculator - OEMS24</title>    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/emi_calculator.css">
+    <title>EMI Calculator - OEMS24</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/emi_calculator.css">
+    <link rel="stylesheet" href="elements/navbar.css">
+    <link rel="stylesheet" href="elements/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>    <div class="scroll-indicator"></div>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../assets/logo.png" alt="OEMS24 Logo">
-        </div>        <ul class="nav-links">
-            <li><a href="../html/index.html#home" id="home-link">Home</a></li>
-            <li><a href="../html/index.html#stats" id="about-link">About Us</a></li>
-            <li><a href="../html/index.html#services" id="services-link">Services</a></li>
-            <li><a href="index.html#buy-vehicle">Vehicles</a></li>            
-            <li><a href="emi_calculator.html" id="emi-link" class="active">EMI Calculator</a></li>
-            <li><a href="../html/index.html#features" id="features-link">Features</a></li>            <li><a href="../html/index.html#testimonials" id="testimonials-link">Testimonials</a></li>
-            <li><a href="../html/index.html#ecosystem" id="ecosystem-link">Ecosystem</a></li>
-            <li><button class="btn login-btn" onclick="openLoginModal()">Login</button></li>
-        </ul>
-        <div class="hamburger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </nav>
+<body>    
+    <div class="scroll-indicator"></div>
+    <!-- Import Navbar -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
@@ -156,7 +144,17 @@
                         </div>
                     </div>
                     <div class="chart-container">
-                        <canvas id="emiChart"></canvas>                    
+                        <canvas id="emiChart"></canvas>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="color-box principal"></span>
+                                <span>Principal</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-box interest"></span>
+                                <span>Interest</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="action-buttons">
@@ -173,100 +171,75 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/emi_calculator.js"></script>
-    <br>
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-section branding">                    <div class="footer-logo">
-                        <img src="../assets/logo.png" alt="OEMS24 Logo">
-                        <h2>OEMS24</h2>
-                    </div>
-                    <p class="footer-tagline">Your Safety, Our Priority</p>
-                    <div class="footer-newsletter">
-                        <h4>Subscribe to Our Updates</h4>
-                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" placeholder="Enter your email" required>
-                            <button type="submit" class="subscribe-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
+    <!-- Import Footer -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Load navbar and footer
+        fetch('elements/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+            
+        fetch('elements/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/emi_calculator.js"></script>
+    <script>
+        // Initialize chart
+        let ctx = document.getElementById('emiChart').getContext('2d');
+        let emiChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Principal', 'Interest'],
+                datasets: [{
+                    data: [80000, 12364],
+                    backgroundColor: [
+                        'rgba(56, 182, 255, 0.8)',
+                        'rgba(0, 255, 195, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(56, 182, 255, 1)',
+                        'rgba(0, 255, 195, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                cutout: '70%'
+            }
+        });
 
-                <div class="footer-links-group">
-                    <div class="footer-section">
-                        <h4>Company</h4>
-                        <ul>                            
-                            <li><a href="index.html#stats">About Us</a></li>
-                            <li><a href="javascript:void(0)" onclick="handleAppAction('careers')">Careers</a></li>
-                            <li><a href="javascript:void(0)" onclick="handleAppAction('blog')">Blog</a></li>
-                            <li><a href="javascript:void(0)" onclick="handleAppAction('press')">Press</a></li>
-                        </ul>
-                    </div>                    
-                    <div class="footer-section">
-                        <h4>Services</h4>
-                        <ul>                            
-                            <li><a href="vehicles.html">Browse Vehicles</a></li>
-                            <li><a href="emi_calculator.html">EMI Calculator</a></li>
-                            <li><a href="index.html#services">All Services</a></li>
-                        </ul>
-                    </div>
+        // Update chart function
+        function updateChart(principal, interest) {
+            emiChart.data.datasets[0].data = [principal, interest];
+            emiChart.update();
+        }
 
-                    <div class="footer-section">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><a href="help_safety.html#help">Help Center</a></li>
-                            <li><a href="help_safety.html#safety">Safety</a></li>
-                            <li><a href="terms_of_service.html">Terms of Service</a></li>
-                            <li><a href="privacy_policy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer-section download">
-                    <h4>Download App</h4>
-                    <div class="qr-code">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://oems24.com/app" alt="Download App">
-                        <p>Scan to Download</p>
-                    </div>
-                    <div class="app-badges">
-                        <button class="app-store-btn" onclick="handleAppAction('download')">
-                            <span class="icon"><i class="fab fa-apple"></i></span>
-                            <div class="text">
-                                <small>Download on the</small>
-                                <strong>App Store</strong>
-                            </div>
-                        </button>
-                        <button class="app-store-btn" onclick="handleAppAction('download')">
-                            <span class="icon"><i class="fab fa-google-play"></i></span>
-                            <div class="text">
-                                <small>GET IT ON</small>
-                                <strong>Google Play</strong>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="social-links">
-                    <a href="https://facebook.com/Naiyo24" class="social-icon" title="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/naiyo24" class="social-icon" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/@naiyo24_official" class="social-icon" title="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-                    <a href="https://instagram.com/naiyo24_official" class="social-icon" title="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com/company/naiyo24-official" class="social-icon" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <p>&copy; 2025 NAIYO24 PVT LTD. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="terms_of_service.html">Terms</a>
-                    <a href="privacy_policy.html">Privacy</a>
-                    <a href="#cookies">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../js/main.js"></script>
-    <script src="../js/emi_calculator.js"></script>
+        // Add this to your existing EMI calculation logic
+        document.getElementById('emiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Your existing EMI calculation code
+            // Then update the chart:
+            const principal = parseFloat(document.getElementById('vehiclePrice').value) - 
+                            parseFloat(document.getElementById('downPayment').value);
+            const interest = parseFloat(document.getElementById('interestAmount').innerText.replace('₹', '').replace(',', ''));
+            updateChart(principal, interest);
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,258 @@
+/* Mobile First Responsive Design */
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--midnight);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(56, 182, 255, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 120px 20px 60px;
+        text-align: center;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .phone-mockup {
+        margin-top: 40px;
+        transform: scale(0.9);
+    }
+
+    /* Split Section */
+    .split-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .split-left {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .emergency-banner {
+        justify-content: center;
+    }
+
+    .hotline {
+        justify-content: center;
+    }
+
+    /* Features Section */
+    .features-section {
+        padding: 60px 20px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    /* Services Section */
+    .services {
+        padding: 60px 20px;
+    }
+
+    .services-tabs {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    /* Stats Section */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    /* Testimonials Section */
+    .testimonial-carousel {
+        padding: 0 20px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 60px 20px 20px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-links-group {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom-links {
+        justify-content: center;
+    }
+
+    /* Vehicles Section */
+    .vehicles-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .vehicle-pricing {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .apply-btn {
+        width: 100%;
+    }
+}
+
+/* Tablet Responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Navigation */
+    .navbar {
+        padding: 1rem 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 120px 40px 80px;
+    }
+
+    /* Split Section */
+    .split-container {
+        gap: 32px;
+    }
+
+    /* Features Section */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    /* Services Section */
+    .services-tabs {
+        gap: 16px;
+    }
+
+    /* Stats Section */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer-main {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .footer-links-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Vehicles Section */
+    .vehicles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Specific Components Responsive */
+@media (max-width: 480px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .app-badges {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .feature-tag {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .testimonial-card {
+        padding: 24px 16px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 480px) and (orientation: landscape) {
+    .nav-links.active {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 100px 20px 40px;
+    }
+}
+
+/* High Resolution Screens */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .feature-card {
+        padding: 40px;
+    }
+}
